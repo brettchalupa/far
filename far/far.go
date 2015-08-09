@@ -39,8 +39,8 @@ func FindAndReplace(path, current, update string) (int, error) {
 
 	for _, line := range lines {
 		if strings.Contains(line, current) {
+			replaceCount += strings.Count(line, current)
 			line = strings.Replace(line, current, update, -1)
-			replaceCount++
 		}
 		write_file.WriteString(line + "\n")
 	}
